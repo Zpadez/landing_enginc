@@ -51,7 +51,7 @@ enginc-landing/
 ## 5. Componentes reutilizables (se repiten varias veces en el diseño)
 
 - **Navbar**: fondo morado, logo ENGINC (icono + texto) a la izquierda, buscador redondeado a la derecha.
-- **Franja de confianza**: banda morada angosta con texto centrado `Pago seguro · Acceso inmediato · Garantía de 7 días`. Aparece varias veces entre secciones.
+- **Franja de confianza**: banda morada angosta con texto `Pago seguro · Acceso inmediato · Garantía de 7 días`. Aparece varias veces entre secciones. Implementada como **marquee de scroll continuo** (loop infinito en JS/CSS, sin salto visible), se pausa al pasar el mouse y respeta `prefers-reduced-motion` (queda estática y centrada si el usuario tiene animaciones reducidas).
 - **Botón CTA primario**: rectángulo navy oscuro, texto blanco, mayúsculas, esquinas redondeadas (`QUIERO COMENZAR`).
 - **Botón CTA secundario**: rectángulo blanco sobre fondo morado, texto morado (`QUIERO MI STARTER ENGINC`).
 - **Tarjeta de precio**: bloque morado redondeado con "Solo", precio grande en blanco, "Pago único" + "12 meses de acceso" y botón.
@@ -170,3 +170,10 @@ El diseño del PDF está pensado para desktop/scroll largo. Para mobile:
 - Los carruseles (masterclasses, ebooks, cursos, testimonios) deben quedar en scroll horizontal táctil o 1 tarjeta visible + flechas.
 - El grid 4x2 de "8 Cursos completos" pasa a 1 o 2 columnas.
 - Las franjas de confianza y CTA final deben apilar texto y botón en vertical.
+
+## 9. Changelog
+
+- **Franja de confianza (`.trust-bar`)**: se implementó animación de scroll continuo (marquee) en las 3 franjas de confianza del sitio.
+  - `index.html`: cada `.trust-bar` ahora envuelve el texto en un `.trust-bar-track` con el mensaje repetido (4 copias visibles + 4 copias `aria-hidden="true"`) para lograr un loop infinito sin salto visual ni contenido duplicado para lectores de pantalla.
+  - `custom.css`: se agregó `overflow: hidden` en `.trust-bar` y la animación `@keyframes trust-bar-scroll` (`translateX(0)` → `translateX(-50%)`, 22s lineal infinito) en `.trust-bar-track`. La animación se pausa al hacer `hover` sobre la franja y se desactiva (queda estática y centrada) si el usuario tiene `prefers-reduced-motion` activado.
+  - `main.js`: sin cambios, la animación es puramente CSS.

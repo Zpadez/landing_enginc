@@ -158,7 +158,32 @@
     </section>
 
     <div class="trust-bar">
-      Pago seguro · Acceso inmediato · Garantía de 7 días
+      <div class="trust-bar-track">
+        <span class="trust-bar-item"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item" aria-hidden="true"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item" aria-hidden="true"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item" aria-hidden="true"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item" aria-hidden="true"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+      </div>
     </div>
 
     <!-- MINI FAQ / DUDAS -->
@@ -166,17 +191,23 @@
       <div class="container">
         <div class="chat-chip-row reveal">
           <div class="chat-chip">
-            <span class="chat-icon"><i class="bi bi-chat-dots"></i></span>
+            <span class="chat-icon">
+              <img src="img/icon-1.png" alt="iconos" class="icon" />
+            </span>
             <p>¿Y ahora qué hago con este proyecto?</p>
           </div>
           <span class="chat-chip-divider d-none d-md-block"></span>
           <div class="chat-chip">
-            <span class="chat-icon"><i class="bi bi-chat-dots"></i></span>
+            <span class="chat-icon">
+              <img src="img/icon-1.png" alt="iconos" class="icon" />
+            </span>
             <p>¿Por dónde comienzo?</p>
           </div>
           <span class="chat-chip-divider d-none d-md-block"></span>
           <div class="chat-chip">
-            <span class="chat-icon"><i class="bi bi-chat-dots"></i></span>
+            <span class="chat-icon">
+              <img src="img/icon-1.png" alt="iconos" class="icon" />
+            </span>
             <p>Tengo poco tiempo para aprender…</p>
           </div>
         </div>
@@ -193,8 +224,7 @@
             rgba(22, 40, 76, 0.55),
             rgba(22, 40, 76, 0.85)
           ),
-          url(&quot;https://placehold.co/1600x700/16284c/16284c?text=+&quot;)
-            center/cover;
+          url(&quot;img/banner-universidad.jpg&quot;) center/cover;
       "
     >
       <div class="container text-center reveal">
@@ -225,17 +255,21 @@
     </div>
 
     <!-- POR QUÉ CREAMOS ESTOS DOCUMENTOS -->
-    <section class="section bg-soft watermark-host">
-      <span class="watermark-text">ENGINC</span>
+    <section class="section bg-soft watermark-host doubts-section">
+      <span class="watermark-text watermark-text--h">ENGINC</span>
+      <span class="watermark-text watermark-text--v">VISIÓN</span>
+      <span class="deco-pill-float deco-pill-tl"></span>
+      <span class="deco-pill-float deco-pill-mid"></span>
+      <span class="deco-pill-float deco-pill-bl"></span>
       <div class="container">
-        <div class="row reveal mb-4">
+        <div class="row reveal mb-4 justify-content-center text-center">
           <div class="col-lg-8">
-            <span class="deco-pill mb-3 d-inline-block"></span>
             <h2 class="section-title">
-              ¿Por qué creamos estos documentos para ti?
+              <span class="d-block fw-normal">¿Por qué creamos estos</span>
+              <span class="d-block fw-bold">documentos para ti?</span>
             </h2>
             <hr
-              class="divider-line"
+              class="divider-line mx-auto"
               style="
                 width: 90px;
                 border-top: 3px solid var(--n-navy);
@@ -244,66 +278,62 @@
             />
           </div>
         </div>
-        <div class="row align-items-center g-5">
-          <div class="col-lg-5 reveal">
-            <div class="video-thumb">
-              <img
-                src="https://placehold.co/480x600/2a3a63/2a3a63?text=Video+fundador"
-                alt="Video del fundador de ENGINC"
-              />
-              <span class="play-btn"><i class="bi bi-play-fill"></i></span>
-              <span class="video-duration">02:36</span>
+
+        <div class="doubts-video-wrap reveal">
+          <span class="doubts-video-backdrop"></span>
+          <div class="video-thumb doubts-video-thumb">
+            <img
+              src="https://placehold.co/800x450/2a3a63/2a3a63?text=Video+fundador"
+              alt="Video del fundador de ENGINC"
+            />
+            <span class="play-btn"><i class="bi bi-play-fill"></i></span>
+            <span class="video-duration">02:36</span>
+          </div>
+        </div>
+
+        <div class="doubts-copy text-center reveal">
+          <h3 class="mb-2">¿Te ha pasado?</h3>
+          <p class="mb-4 mx-auto">
+            Sabes la teoría, pero al enfrentarte a un proyecto real surgen
+            preguntas diferentes.
+          </p>
+        </div>
+
+        <div
+          class="carousel-row doubts-carousel-row d-flex align-items-center gap-3 reveal"
+        >
+          <button
+            class="carousel-arrow doubts-arrow d-flex"
+            data-scroll-target="#chipTrack1"
+            data-dir="-1"
+          >
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <div class="chip-track doubts-chip-track" id="chipTrack1">
+            <div class="chip-star">
+              <span class="star-badge"><i class="bi bi-star-fill"></i></span>
+              <span class="q">¿Por dónde comienzo?</span>
+            </div>
+            <div class="chip-star">
+              <span class="star-badge"><i class="bi bi-star-fill"></i></span>
+              <span class="q">¿Qué información debo recopilar?</span>
+            </div>
+            <div class="chip-star">
+              <span class="star-badge"><i class="bi bi-star-fill"></i></span>
+              <span class="q">¿Qué condiciones utilizo?</span>
+            </div>
+            <div class="chip-star">
+              <span class="star-badge"><i class="bi bi-star-fill"></i></span>
+              <span class="q">¿Qué norma debo consultar?</span>
             </div>
           </div>
-          <div class="col-lg-7 reveal">
-            <h3 class="mb-2">¿Te ha pasado?</h3>
-            <p class="mb-4">
-              Sabes la teoría, pero al enfrentarte a un proyecto real surgen
-              preguntas diferentes.
-            </p>
-            <div class="carousel-row d-flex align-items-center gap-3">
-              <button
-                class="carousel-arrow d-none d-md-flex"
-                data-scroll-target="#chipTrack1"
-                data-dir="-1"
-              >
-                <i class="bi bi-chevron-left"></i>
-              </button>
-              <div class="chip-track" id="chipTrack1">
-                <div class="chip-star">
-                  <span class="star-badge"
-                    ><i class="bi bi-star-fill"></i
-                  ></span>
-                  <span class="q">¿Por dónde comienzo?</span>
-                </div>
-                <div class="chip-star">
-                  <span class="star-badge"
-                    ><i class="bi bi-star-fill"></i
-                  ></span>
-                  <span class="q">¿Qué información debo recopilar?</span>
-                </div>
-                <div class="chip-star">
-                  <span class="star-badge"
-                    ><i class="bi bi-star-fill"></i
-                  ></span>
-                  <span class="q">¿Qué condiciones utilizo?</span>
-                </div>
-                <div class="chip-star">
-                  <span class="star-badge"
-                    ><i class="bi bi-star-fill"></i
-                  ></span>
-                  <span class="q">¿Qué norma debo consultar?</span>
-                </div>
-              </div>
-              <button
-                class="carousel-arrow d-none d-md-flex"
-                data-scroll-target="#chipTrack1"
-                data-dir="1"
-              >
-                <i class="bi bi-chevron-right"></i>
-              </button>
-            </div>
-          </div>
+          <button
+            class="carousel-arrow doubts-arrow d-flex"
+            data-scroll-target="#chipTrack1"
+            data-dir="1"
+          >
+            <i class="bi bi-chevron-right"></i>
+          </button>
         </div>
       </div>
     </section>
@@ -313,10 +343,7 @@
       <div class="container">
         <div class="connect-block reveal">
           <div class="brain-media">
-            <img
-              src="https://placehold.co/300x300/e9eaec/4a4ba0?text=3D+brain"
-              alt="Ilustración 3D de cerebro"
-            />
+            <img src="img/img-landing-1.png" alt="Ilustración 3D de cerebro" />
           </div>
           <p class="mb-1 fs-5">No siempre es que te falte conocimiento.</p>
           <p class="fs-4 fw-bold mb-2">Muchas veces necesitas aprender a</p>
@@ -519,7 +546,32 @@
     </section>
 
     <div class="trust-bar">
-      Pago seguro · Acceso inmediato · Garantía de 7 días
+      <div class="trust-bar-track">
+        <span class="trust-bar-item"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item" aria-hidden="true"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item" aria-hidden="true"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item" aria-hidden="true"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item" aria-hidden="true"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+      </div>
     </div>
 
     <!-- CIERRE OFERTA STARTER -->
@@ -672,7 +724,32 @@
     </section>
 
     <div class="trust-bar">
-      Pago seguro · Acceso inmediato · Garantía de 7 días
+      <div class="trust-bar-track">
+        <span class="trust-bar-item"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item" aria-hidden="true"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item" aria-hidden="true"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item" aria-hidden="true"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+        <span class="trust-bar-item" aria-hidden="true"
+          >Pago seguro · Acceso inmediato · Garantía de 7 días</span
+        >
+      </div>
     </div>
 
     <!-- 8 CURSOS COMPLETOS -->

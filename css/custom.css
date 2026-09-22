@@ -14,7 +14,7 @@
   --n-success: #12b76a;
   --n-slate: #5b6478;
   --n-slate-light: #9296c6;
-  --n-bg: #e9eaec; /* fondo general gris claro */
+  --n-bg: #fff; /* fondo general gris claro */
   --n-bg-alt: #efe9fa;
   --n-border: #dbdee3;
   --n-white: #ffffff;
@@ -532,12 +532,65 @@ a {
 .trust-bar {
   background: var(--n-primary);
   color: #fff;
-  text-align: center;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 0;
   font-family: var(--n-font-display);
   font-weight: 600;
   font-size: 0.85rem;
   letter-spacing: 0.06em;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.trust-bar-track {
+  display: inline-flex;
+  width: max-content;
+  animation: trust-bar-scroll 22s linear infinite;
+  will-change: transform;
+}
+
+.trust-bar:hover .trust-bar-track {
+  animation-play-state: paused;
+}
+
+.trust-bar-item {
+  flex-shrink: 0;
+  padding: 0 1.75rem;
+  position: relative;
+}
+
+.trust-bar-item::after {
+  content: "•";
+  position: absolute;
+  right: -0.15rem;
+  opacity: 0.6;
+}
+
+@keyframes trust-bar-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-bar-track {
+    animation: none;
+  }
+  .trust-bar {
+    white-space: normal;
+    text-align: center;
+  }
+  .trust-bar-track {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .trust-bar-item:nth-child(n + 5) {
+    display: none;
+  }
 }
 
 /* =====================================================
@@ -641,17 +694,26 @@ a {
   max-width: 220px;
 }
 .chat-chip .chat-icon {
-  width: 52px;
-  height: 52px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #eef0f2;
+  border: none;
+  box-shadow:
+    0 0 0 1px rgba(30, 111, 224, 0.25),
+    0 0 18px 6px rgba(30, 111, 224, 0.55),
+    0 0 40px 14px rgba(30, 111, 224, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 1.2rem;
+  color: var(--n-navy);
+  font-size: 1.3rem;
   flex-shrink: 0;
+}
+.chat-chip .chat-icon .icon {
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
 }
 .chat-chip p {
   color: #fff;
@@ -709,29 +771,124 @@ a {
   border-radius: 4px;
 }
 
-/* Watermark de texto outline gigante (marca de agua "ENGINC") */
-.watermark-text {
+/* =====================================================
+   SECCIÓN "¿POR QUÉ CREAMOS ESTOS DOCUMENTOS?"
+   ===================================================== */
+.doubts-video-wrap {
+  position: relative;
+  max-width: 620px;
+  margin: 1rem auto 0;
+}
+.doubts-video-backdrop {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: var(--n-secondary);
+  border-radius: var(--n-radius-md);
+  transform: translate(-16px, 16px);
+  z-index: 0;
+}
+.doubts-video-thumb {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+.doubts-video-thumb img {
+  aspect-ratio: 16 / 9;
+}
+.doubts-copy {
+  max-width: 560px;
+  margin: 2.5rem auto 0;
+}
+.doubts-copy p {
+  margin-left: auto;
+  margin-right: auto;
+}
+.doubts-carousel-row {
+  margin-top: var(--n-space-md);
+}
+.doubts-carousel-row .doubts-arrow {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: var(--n-navy);
+  font-size: 1.5rem;
+  width: auto;
+  height: auto;
+}
+.doubts-carousel-row .doubts-arrow:hover {
+  background: transparent;
+  color: var(--n-secondary);
+}
+.doubts-chip-track {
+  flex: 1;
+}
+.doubts-chip-track .chip-star {
+  flex: 0 0 320px;
+  width: 320px;
+  justify-content: flex-start;
+}
+
+/* Watermark de texto outline gigante (marca de agua "ENGINC" / "VISIÓN") */
+.watermark-text {
+  position: absolute;
   font-family: var(--n-font-display);
   font-weight: 800;
-  font-size: 9rem;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(22, 40, 76, 0.12);
+  -webkit-text-stroke: 1.5px rgba(22, 40, 76, 0.14);
   white-space: nowrap;
+  line-height: 1;
   z-index: 0;
   pointer-events: none;
+}
+.watermark-text--h {
+  top: 8%;
+  left: -0.75rem;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+}
+.watermark-text--v {
+  top: 6%;
+  right: 3%;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: clamp(2.75rem, 6vw, 5rem);
 }
 .watermark-host {
   position: relative;
   overflow: hidden;
 }
-.watermark-host > * {
+.watermark-host > .container {
   position: relative;
+  z-index: 2;
+}
+
+/* Pills decorativas flotantes (cápsulas moradas sólidas) */
+.deco-pill-float {
+  position: absolute;
+  width: 74px;
+  height: 34px;
+  background: var(--n-primary);
+  border-radius: var(--n-radius-pill);
   z-index: 1;
+  pointer-events: none;
+}
+.deco-pill-tl {
+  top: -16px;
+  left: -18px;
+}
+.deco-pill-mid {
+  top: 30%;
+  right: 2%;
+}
+.deco-pill-bl {
+  top: 62%;
+  left: 1.5%;
+}
+
+@media (max-width: 991.98px) {
+  .watermark-text,
+  .deco-pill-float {
+    display: none;
+  }
 }
 
 /* =====================================================
@@ -766,7 +923,7 @@ a {
   height: 32px;
   border-radius: 50%;
   background: #fff;
-  color: var(--n-secondary);
+  color: var(--n-navy);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -813,22 +970,24 @@ a {
   text-align: center;
   color: #fff;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .connect-block .brain-media {
-  width: 190px;
-  height: 190px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   background: #fff;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto -124px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
+  top: -155px;
 }
 .connect-block .brain-media img {
-  width: 100%;
-  height: 100%;
+  width: 83%;
+  height: 83%;
   object-fit: cover;
 }
 .connect-block .connect-word {

@@ -120,16 +120,70 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ---------- Carousels con flechas ◀ ▶ (masterclasses, ebooks, cursos, testimonios, chips) ---------- */
-  document.querySelectorAll('.carousel-arrow').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const selector = btn.getAttribute('data-scroll-target');
-      const dir = parseInt(btn.getAttribute('data-dir'), 10) || 1;
-      const track = document.querySelector(selector);
-      if (!track) return;
-      const card = track.querySelector(':scope > *');
-      const step = card ? card.getBoundingClientRect().width + 20 : 260;
-      track.scrollBy({ left: dir * step, behavior: 'smooth' });
-    });
+  const TOLERANCE = 4; // px de margen para considerar "llegó al final"
+
+  const setArrowState = (btn, disabled) => {
+    if (!btn) return;
+    btn.style.visibility = disabled ? 'hidden' : '';
+    btn.style.pointerEvents = disabled ? 'none' : '';
+    btn.setAttribute('aria-disabled', disabled ? 'true' : 'false');
+  };
+
+  const getStep = (track) => {
+    const card = track.querySelector(':scope > *');
+    if (!card) return 260;
+    const trackStyle = window.getComputedStyle(track);
+    const gap = parseFloat(trackStyle.columnGap || trackStyle.gap) || 0;
+    return card.getBoundingClientRect().width + gap;
+  };
+
+  // Agrupa cada track con sus flechas prev/next (pueden repetirse selectores)
+  const trackSelectors = new Set();
+  document.querySelectorAll('[data-scroll-target]').forEach(btn => {
+    trackSelectors.add(btn.getAttribute('data-scroll-target'));
+  });
+
+  trackSelectors.forEach(selector => {
+    const track = document.querySelector(selector);
+    if (!track) return;
+
+    const buttons = document.querySelectorAll(`[data-scroll-target="${selector}"]`);
+    const prevBtn = Array.from(buttons).find(b => parseInt(b.getAttribute('data-dir'), 10) < 0);
+    const nextBtn = Array.from(buttons).find(b => parseInt(b.getAttribute('data-dir'), 10) > 0);
+
+    const updateState = () => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      const hasOverflow = maxScroll > TOLERANCE;
+      // Si el contenido ya entra completo (p. ej. la fila de chips en desktop),
+      // las flechas se dejan visibles pero inertes en vez de no responder en silencio.
+      setArrowState(prevBtn, !hasOverflow);
+      setArrowState(nextBtn, !hasOverflow);
+    };
+
+    const goTo = (dir) => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      if (maxScroll <= TOLERANCE) return; // nada que desplazar
+      const step = getStep(track);
+      let target;
+      if (dir > 0) {
+        target = track.scrollLeft >= maxScroll - TOLERANCE
+          ? 0
+          : Math.min(track.scrollLeft + step, maxScroll);
+      } else {
+        target = track.scrollLeft <= TOLERANCE
+          ? maxScroll
+          : Math.max(track.scrollLeft - step, 0);
+      }
+      track.scrollTo({ left: target, behavior: 'smooth' });
+    };
+
+    if (prevBtn) prevBtn.addEventListener('click', () => goTo(-1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goTo(1));
+
+    track.addEventListener('scroll', updateState);
+    window.addEventListener('resize', updateState);
+    window.addEventListener('load', updateState);
+    updateState();
   });
 
 });
