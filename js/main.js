@@ -1,5 +1,6 @@
 /* =====================================================
-   NEXORA — UI Interactions (Vanilla JS)
+   ENGINC — UI Interactions (Vanilla JS)
+   Basado en el main.js original de la plantilla
    ===================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -92,10 +93,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const btn = form.querySelector('button[type="submit"]');
         if (btn) {
           const original = btn.innerHTML;
-          btn.innerHTML = 'Sending...';
+          btn.innerHTML = 'Enviando...';
           btn.disabled = true;
           setTimeout(() => {
-            btn.innerHTML = 'Message sent ✓';
+            btn.innerHTML = 'Mensaje enviado ✓';
             setTimeout(() => {
               btn.innerHTML = original;
               btn.disabled = false;
@@ -116,6 +117,19 @@ document.addEventListener('DOMContentLoaded', function () {
     if (href === currentPage) {
       link.classList.add('active');
     }
+  });
+
+  /* ---------- Carousels con flechas ◀ ▶ (masterclasses, ebooks, cursos, testimonios, chips) ---------- */
+  document.querySelectorAll('.carousel-arrow').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selector = btn.getAttribute('data-scroll-target');
+      const dir = parseInt(btn.getAttribute('data-dir'), 10) || 1;
+      const track = document.querySelector(selector);
+      if (!track) return;
+      const card = track.querySelector(':scope > *');
+      const step = card ? card.getBoundingClientRect().width + 20 : 260;
+      track.scrollBy({ left: dir * step, behavior: 'smooth' });
+    });
   });
 
 });
