@@ -181,7 +181,7 @@ a {
 .section-subtitle {
   font-size: 1.05rem;
   color: var(--n-slate);
-  max-width: 620px;
+  max-width: 100vw;
 }
 .section-header {
   margin-bottom: var(--n-space-xl);
@@ -221,6 +221,23 @@ a {
   max-width: 100%;
   display: block;
   margin-left: 57px;
+}
+
+.lista {
+  width: 544px;
+  display: block;
+  margin: auto !important;
+}
+
+.notch-asesoria {
+  margin-top: 5px !important;
+}
+
+.flecha {
+  display: block;
+  margin: auto;
+  max-width: 60%;
+  height: auto;
 }
 
 /* =====================================================
@@ -535,7 +552,7 @@ a {
   padding: 0.75rem 0;
   font-family: var(--n-font-display);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 1.75rem;
   letter-spacing: 0.06em;
   overflow: hidden;
   white-space: nowrap;
@@ -811,7 +828,7 @@ a {
   border: none;
   box-shadow: none;
   color: var(--n-navy);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   width: auto;
   height: auto;
 }
@@ -823,9 +840,26 @@ a {
   flex: 1;
 }
 .doubts-chip-track .chip-star {
-  flex: 0 0 320px;
-  width: 320px;
+  flex: 0 0 300px;
+  width: 300px;
+  min-height: 120px;
+  padding: 1.1rem 1.5rem;
+  border-radius: 22px;
+  background: var(--n-secondary);
   justify-content: flex-start;
+  gap: 1rem;
+}
+.doubts-chip-track .chip-star .star-badge {
+  width: 46px;
+  height: 46px;
+  font-size: 1.1rem;
+  color: var(--n-secondary);
+}
+.doubts-chip-track .chip-star span.q {
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.35;
 }
 
 /* Watermark de texto outline gigante (marca de agua "ENGINC" / "VISIÓN") */
@@ -970,24 +1004,24 @@ a {
   text-align: center;
   color: #fff;
   position: relative;
-  /* overflow: hidden; */
 }
 .connect-block .brain-media {
-  width: 250px;
-  height: 250px;
+  width: 265px;
+  height: 265px;
   border-radius: 50%;
   background: #fff;
-  margin: 0 auto -124px;
+  margin: 0 auto 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin-bottom: -88px;
   position: relative;
-  top: -155px;
+  top: -148px;
 }
 .connect-block .brain-media img {
-  width: 83%;
-  height: 83%;
+  width: auto;
+  height: 82%;
   object-fit: cover;
 }
 .connect-block .connect-word {
@@ -1124,10 +1158,11 @@ a {
 }
 .ladder-steps {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
   max-width: 640px;
+  margin: auto;
 }
 .ladder-step {
   text-align: center;
@@ -1149,6 +1184,10 @@ a {
   font-weight: 700;
   font-size: 1rem;
 }
+.ladder-step:nth-child(even) .step-label,
+.ladder-step:nth-child(even) .step-figure {
+  color: #ffffff00 !important;
+}
 .ladder-step.step-1 {
   align-self: flex-start;
 }
@@ -1158,8 +1197,12 @@ a {
 .ladder-step.step-3 {
   align-self: flex-end;
 }
-.ladder-step.step-3 .step-figure {
+.ladder-step.step-5 .step-figure,
+.ladder-step.step-5 .step-label {
   color: #ff6b4a;
+}
+.ladder-step.step-5 .step-plate {
+  background: #ff6b4a;
 }
 
 @media (max-width: 767.98px) {
@@ -1233,8 +1276,7 @@ a {
    MENTOR QUOTE BLOCK
    ===================================================== */
 .mentor-block {
-  background: var(--n-gradient-dark);
-  border-radius: var(--n-radius-lg) var(--n-radius-lg) 0 0;
+  background: var(--n-navy);
   padding: var(--n-space-xl) var(--n-space-lg);
   color: #fff;
 }
@@ -1265,11 +1307,16 @@ a {
   padding: var(--n-space-md) var(--n-space-lg);
   color: #fff;
   flex: 0 0 auto;
-  width: 340px;
+  width: calc(50% - 0.625rem);
   scroll-snap-align: start;
   display: flex;
   gap: 1rem;
   align-items: flex-start;
+}
+@media (max-width: 767.98px) {
+  .testimonial-enginc {
+    width: 88%;
+  }
 }
 .testimonial-enginc .avatar {
   width: 56px;
@@ -1385,6 +1432,7 @@ a {
   color: #fff;
   text-align: center;
   height: 100%;
+  font-family: var(--n-font-display);
 }
 .plan-mini-card .price-amount {
   font-size: 2.25rem;
