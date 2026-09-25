@@ -181,7 +181,7 @@ a {
 .section-subtitle {
   font-size: 1.05rem;
   color: var(--n-slate);
-  max-width: 100vw;
+  max-width: 100%;
 }
 .section-header {
   margin-bottom: var(--n-space-xl);
@@ -223,8 +223,16 @@ a {
   margin-left: 57px;
 }
 
+@media (max-width: 767.98px) {
+  .logo-header {
+    height: 52px;
+    margin-left: 0.5rem;
+  }
+}
+
 .lista {
-  width: 544px;
+  width: 100%;
+  max-width: 544px;
   display: block;
   margin: auto !important;
 }
@@ -278,6 +286,14 @@ a {
   display: block;
   margin: auto;
   width: 28%;
+  min-width: 220px;
+}
+
+@media (max-width: 575.98px) {
+  .btn-dark-cta {
+    width: 90%;
+    min-width: 0;
+  }
 }
 .btn-dark-cta:hover {
   background: var(--n-navy-alt);
@@ -481,6 +497,12 @@ a {
   overflow: hidden;
 }
 
+@media (max-width: 991.98px) {
+  .hero-enginc {
+    min-height: 520px;
+  }
+}
+
 .hero-enginc::before {
   content: "";
   position: absolute;
@@ -514,7 +536,7 @@ a {
 .hero-enginc h1 {
   color: #fff;
   font-weight: 800;
-  font-size: 4.5rem;
+  font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
   letter-spacing: 0.02em;
   margin: 0;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
@@ -525,8 +547,16 @@ a {
     min-height: 420px;
     padding-top: 6rem;
   }
-  .hero-enginc h1 {
-    font-size: 2.75rem;
+}
+
+@media (max-width: 480px) {
+  .hero-enginc {
+    padding-top: 5rem;
+    padding-bottom: 3.5rem;
+  }
+  .hero-enginc .eyebrow-italic {
+    letter-spacing: 0.2em;
+    font-size: 0.85rem;
   }
 }
 
@@ -552,7 +582,7 @@ a {
   padding: 0.75rem 0;
   font-family: var(--n-font-display);
   font-weight: 600;
-  font-size: 1.75rem;
+  font-size: clamp(1rem, 1.5vw + 0.6rem, 1.75rem);
   letter-spacing: 0.06em;
   overflow: hidden;
   white-space: nowrap;
@@ -624,33 +654,39 @@ a {
 
 .price-card .price-label {
   font-family: "Gotham";
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 1vw + 1.1rem, 2rem);
   font-weight: 900;
   opacity: 0.9;
   margin-bottom: 0.15rem;
 }
 .price-card .price-amount {
   font-family: var(--n-font-display);
-  font-size: 6.45rem;
+  font-size: clamp(3.5rem, 6vw + 1.5rem, 6.45rem);
   font-weight: 900;
-  line-height: 87px;
+  line-height: 1.1;
   margin-bottom: 0.7rem;
 }
 .price-card .price-amount sup {
-  font-size: 1.4rem;
-  top: -1.6rem;
+  font-size: 0.22em;
+  top: -1.1em;
 }
 .price-card .price-meta {
-  font-size: 2.95rem;
+  font-size: clamp(1.75rem, 2.5vw + 1rem, 2.95rem);
   font-weight: 900;
 }
 .price-card .price-meta small {
   display: block;
   font-weight: 900;
-  font-size: 1.6rem;
+  font-size: clamp(1.1rem, 1.2vw + 0.8rem, 1.6rem);
 }
 .price-card .btn {
   margin-top: 1rem;
+}
+
+@media (max-width: 767.98px) {
+  .price-card {
+    padding: var(--n-space-sm) var(--n-space-md);
+  }
 }
 
 /* Fila combinada: precio + botón, para el CTA final de comparativa */
@@ -675,11 +711,17 @@ a {
 .offer-feature-list li {
   font-family: var(--n-font-display);
   font-weight: 800;
-  font-size: 2.4rem;
+  font-size: clamp(1.5rem, 2.5vw + 1rem, 2.4rem);
   color: var(--n-navy);
   margin-bottom: 1.65rem;
   text-align: center;
   line-height: 0.7;
+}
+
+@media (max-width: 480px) {
+  .offer-feature-list li {
+    line-height: 1.15;
+  }
 }
 .offer-feature-list li.muted {
   color: var(--n-slate-light);
@@ -691,7 +733,7 @@ a {
 .precio {
   width: 91%;
   margin: auto;
-  margin-bottom: 37px;
+  margin-bottom: 2.3rem;
 }
 
 /* =====================================================
@@ -848,6 +890,13 @@ a {
   background: var(--n-secondary);
   justify-content: flex-start;
   gap: 1rem;
+}
+
+@media (max-width: 480px) {
+  .doubts-chip-track .chip-star {
+    flex-basis: 240px;
+    width: 240px;
+  }
 }
 .doubts-chip-track .chip-star .star-badge {
   width: 46px;
@@ -1019,6 +1068,19 @@ a {
   position: relative;
   top: -148px;
 }
+
+/* REVISAR CON HTML: el offset negativo (top/margin-bottom) es fijo en px y
+   depende de la altura real del contenido de alrededor; en pantallas
+   angostas puede solaparse mal. Reducido proporcionalmente como parche,
+   pero conviene confirmar con el HTML real. */
+@media (max-width: 575.98px) {
+  .connect-block .brain-media {
+    width: 180px;
+    height: 180px;
+    margin-bottom: -60px;
+    top: -100px;
+  }
+}
 .connect-block .brain-media img {
   width: auto;
   height: 82%;
@@ -1027,7 +1089,7 @@ a {
 .connect-block .connect-word {
   font-family: var(--n-font-display);
   font-weight: 800;
-  font-size: 2.4rem;
+  font-size: clamp(1.6rem, 3vw + 1rem, 2.4rem);
   letter-spacing: 0.02em;
 }
 
@@ -1043,6 +1105,12 @@ a {
   flex: 0 0 auto;
   width: 220px;
   scroll-snap-align: start;
+}
+
+@media (max-width: 480px) {
+  .media-card {
+    width: 170px;
+  }
 }
 .media-card img {
   width: 100%;
@@ -1298,6 +1366,16 @@ a {
   margin-top: 1rem;
 }
 
+@media (max-width: 767.98px) {
+  .mentor-quote {
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    line-height: 1.4;
+    width: 503px !important;
+    margin: auto !important;
+  }
+}
+
 /* =====================================================
    TESTIMONIAL — ENGINC (fondo morado)
    ===================================================== */
@@ -1388,21 +1466,41 @@ a {
 }
 
 /* =====================================================
-   FAQ LIST (simple, sin acordeón — según diseño)
+   FAQ ACCORDION
    ===================================================== */
-.faq-simple-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.faq-accordion .accordion-item {
+  border: none;
+  border-bottom: 1px solid var(--n-border);
+  background: transparent;
 }
-.faq-simple-list li {
+.faq-accordion .accordion-item:last-child {
+  border-bottom: none;
+}
+.faq-accordion .accordion-button {
   font-weight: 600;
   color: var(--n-navy);
+  background: transparent;
   padding: 0.85rem 0;
-  border-bottom: 1px solid var(--n-border);
+  box-shadow: none;
 }
-.faq-simple-list li:last-child {
-  border-bottom: none;
+.faq-accordion .accordion-button:not(.collapsed) {
+  color: var(--n-primary);
+  background: transparent;
+  box-shadow: none;
+}
+.faq-accordion .accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+.faq-accordion .accordion-button::after {
+  background-size: 1.1rem;
+  flex-shrink: 0;
+}
+.faq-accordion .accordion-body {
+  padding: 0 0 1.1rem;
+  color: var(--n-slate);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 /* =====================================================
@@ -1454,6 +1552,24 @@ a {
 .footer-nexora .footer-tagline {
   color: rgba(255, 255, 255, 0.55);
   font-size: 0.9rem;
+}
+
+.footer-line {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+  padding: var(--n-space-md) 0;
+}
+.footer-line a {
+  color: rgba(255, 255, 255, 0.75);
+}
+.footer-line a:hover {
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .footer-line {
+    text-align: right;
+  }
 }
 
 .footer-bottom {

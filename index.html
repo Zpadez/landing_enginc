@@ -1357,14 +1357,164 @@
             <h2 class="section-title">PREGUNTAS FRECUENTES</h2>
           </div>
           <div class="col-lg-7 reveal">
-            <ul class="faq-simple-list">
-              <li>¿Cuánto tiempo tengo acceso?</li>
-              <li>¿Las clases son en vivo?</li>
-              <li>¿Incluye certificado?</li>
-              <li>¿Puedo verlo desde mi teléfono?</li>
-              <li>¿Incluye VRF?</li>
-              <li>¿Puedo cambiar de plan después?</li>
-            </ul>
+            <div class="accordion faq-accordion" id="faqAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeading1">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapse1"
+                    aria-expanded="false"
+                    aria-controls="faqCollapse1"
+                  >
+                    ¿Cuánto tiempo tengo acceso?
+                  </button>
+                </h3>
+                <div
+                  id="faqCollapse1"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faqHeading1"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Tienes 12 meses de acceso completo desde el momento de tu
+                    inscripción, para que avances a tu propio ritmo y puedas
+                    repasar el contenido cuando lo necesites.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeading2">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapse2"
+                    aria-expanded="false"
+                    aria-controls="faqCollapse2"
+                  >
+                    ¿Las clases son en vivo?
+                  </button>
+                </h3>
+                <div
+                  id="faqCollapse2"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faqHeading2"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    No, todo el contenido está grabado y disponible bajo
+                    demanda, así que puedes verlo cuando quieras y las veces
+                    que necesites.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeading3">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapse3"
+                    aria-expanded="false"
+                    aria-controls="faqCollapse3"
+                  >
+                    ¿Incluye certificado?
+                  </button>
+                </h3>
+                <div
+                  id="faqCollapse3"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faqHeading3"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Sí, al completar el programa recibes un certificado
+                    digital de finalización que respalda tu formación en
+                    ENGINC.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeading4">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapse4"
+                    aria-expanded="false"
+                    aria-controls="faqCollapse4"
+                  >
+                    ¿Puedo verlo desde mi teléfono?
+                  </button>
+                </h3>
+                <div
+                  id="faqCollapse4"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faqHeading4"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Sí, la plataforma es 100% responsive y puedes acceder
+                    desde el celular, tablet o computadora sin ningún
+                    problema.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeading5">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapse5"
+                    aria-expanded="false"
+                    aria-controls="faqCollapse5"
+                  >
+                    ¿Incluye VRF?
+                  </button>
+                </h3>
+                <div
+                  id="faqCollapse5"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faqHeading5"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Sí, el Pack HVAC 360 incluye contenido específico sobre
+                    sistemas VRF, incluyendo diseño, selección de equipos y
+                    puesta en marcha.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeading6">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapse6"
+                    aria-expanded="false"
+                    aria-controls="faqCollapse6"
+                  >
+                    ¿Puedo cambiar de plan después?
+                  </button>
+                </h3>
+                <div
+                  id="faqCollapse6"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="faqHeading6"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Sí, puedes hacer un upgrade a un plan superior en
+                    cualquier momento, pagando solo la diferencia entre
+                    ambos planes.
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1390,7 +1540,13 @@
         <div class="row g-4 reveal">
           <div class="col-4 col-lg-4">
             <div class="plan-mini-card">
-              <div class="price-label">STARTER</div>
+              <div
+                class="small text-uppercase mb-2"
+                style="letter-spacing: 0.08em; opacity: 0.75"
+              >
+                Starter
+              </div>
+              <div class="price-label">Solo</div>
               <div class="price-amount">19<sup>$</sup></div>
               <div class="price-meta">
                 Pago único
@@ -1400,7 +1556,13 @@
           </div>
           <div class="col-4 col-lg-4">
             <div class="plan-mini-card">
-              <div class="price-label">PACK HVAC 360</div>
+              <div
+                class="small text-uppercase mb-2"
+                style="letter-spacing: 0.08em; opacity: 0.75"
+              >
+                Pack HVAC 360
+              </div>
+              <div class="price-label">Solo</div>
               <div class="price-amount">89<sup>$</sup></div>
               <div class="price-meta">
                 Pago único
@@ -1410,7 +1572,13 @@
           </div>
           <div class="col-4 col-lg-4">
             <div class="plan-mini-card">
-              <div class="price-label">PACK + MENTORÍA</div>
+              <div
+                class="small text-uppercase mb-2"
+                style="letter-spacing: 0.08em; opacity: 0.75"
+              >
+                Pack + Mentoría
+              </div>
+              <div class="price-label">Solo</div>
               <div class="price-amount">199<sup>$</sup></div>
               <div class="price-meta">
                 Pago único
@@ -1425,23 +1593,21 @@
     <!-- FOOTER -->
     <footer class="footer-nexora">
       <div class="container">
-        <div class="row gy-4 align-items-center">
-          <div class="col-md-6">
-            <a class="navbar-brand-custom d-inline-flex mb-2" href="index.html">
+        <div class="row gy-3 align-items-center">
+          <div class="col-md-3">
+            <a class="navbar-brand-custom d-inline-flex" href="index.html">
               <span class="brand-icon"><i class="bi bi-cpu"></i></span>
               ENGINC
             </a>
-            <p class="footer-tagline mb-0">Conocimiento que construye sueños</p>
           </div>
-          <div class="col-md-6 text-md-end">
-            <a href="#" class="text-white-50 me-3">Términos</a>
-            <a href="#" class="text-white-50 me-3">Privacidad</a>
-            <a href="#" class="text-white-50 me-3">Soporte</a>
-            <a href="#" class="text-white-50">Contacto</a>
+          <div class="col-md-9 footer-line">
+            ENGINC &middot; Conocimiento que construye sueños &middot;
+            <a href="#">Términos</a> &middot;
+            <a href="#">Privacidad</a> &middot;
+            <a href="#">Soporte</a> &middot;
+            <a href="#">Contacto</a> &middot; &copy; 2026 ENGINC. Todos los
+            derechos reservados.
           </div>
-        </div>
-        <div class="footer-bottom">
-          &copy; 2026 ENGINC. Todos los derechos reservados.
         </div>
       </div>
     </footer>
