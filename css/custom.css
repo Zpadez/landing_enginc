@@ -381,6 +381,9 @@ a {
   padding: 0.35rem 0;
   transition: all 0.3s ease;
   background: var(--n-gradient-primary);
+  width: 100%;
+  left: 0;
+  right: 0;
 }
 
 .navbar-nexora.scrolled {
