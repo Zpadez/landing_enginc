@@ -149,6 +149,54 @@ a {
     padding-top: var(--n-space-lg);
     padding-bottom: var(--n-space-lg);
   }
+  .row {
+    width: 100% !important;
+    margin: auto !important;
+  }
+  .btn-dark-cta {
+    font-size: 1.22rem;
+  }
+  .section-title {
+    font-size: 1.52rem;
+  }
+  .testimonial-enginc .name {
+    font-size: 1.7rem;
+  }
+  .testimonial-enginc p.quote {
+    font-size: 1.45rem;
+    line-height: 1.3;
+  }
+  .guarantee-banner h3 {
+    font-size: 2.05rem;
+  }
+  .guarantee-banner p {
+    font-size: 1.35rem;
+  }
+  .faq-accordion .accordion-button {
+    font-size: 1.85rem;
+  }
+  .faq-accordion .accordion-body {
+    font-size: 1.45rem;
+  }
+  .final-cta-bar h3 {
+    font-size: 2.15rem;
+  }
+  .final-cta-bar p {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+  .col-planes {
+    width: 100% !important;
+  }
+  .plan-mini-card {
+    font-size: 2.45rem !important;
+  }
+  .popular {
+    width: 242px !important;
+    left: 32% !important;
+    top: 505px !important;
+    font-size: 1.55rem !important;
+  }
 }
 
 /* Título estilo ENGINC: línea subrayada arriba + palabra en negrita debajo */
@@ -177,7 +225,7 @@ a {
 }
 
 .section-title {
-  margin-bottom: var(--n-space-sm);
+  margin-bottom: var(--n-space-sm) !important;
 }
 .section-subtitle {
   font-size: 1.05rem;
@@ -251,7 +299,7 @@ a {
 
 @media (max-width: 767.98px) {
   .flecha {
-    max-width: 78%;
+    max-width: 46%;
   }
   .cupos-row {
     --bs-gutter-y: 1.5rem;
@@ -747,7 +795,7 @@ a {
 }
 
 .precio {
-  width: 91%;
+  width: 91% !important;
   margin: auto;
   margin-bottom: 2.3rem;
 }
